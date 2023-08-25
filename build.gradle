@@ -1,0 +1,32 @@
+plugins {
+    id "java"
+    id 'application'
+}
+
+group = "org.translate"
+version = "1.0"
+
+repositories {
+    mavenCentral()
+}
+
+
+application {
+    mainClass = 'org.translate.Main'
+}
+jar {
+    manifest {
+        exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+        attributes(
+                'Main-Class': 'org.translate.Main',
+        )
+    }
+}
+
+dependencies {
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.15.2"
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
